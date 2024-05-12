@@ -1,0 +1,19 @@
+name: Hello World Workflow
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Echo the message
+        run: echo "hola mundo"
+
+      - name: Fail on error
+        run: if [ $? -ne 0 ]; then exit 1; fi
